@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	--font-family: "Darker Grotesque", sans-serif;
+	--main: #6f42f2;
+	--accent: #56db9c;
+	--light: #fbfbfb;
+	--dark-400: #151419;
+	--dark-300: #1b1b1e;
+	--dark-200: #262626;
+	--dark-100: #878787;
+}
+
+/* removes scrollbar */
+::-webkit-scrollbar {
+	width: 0;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: var(--font-family);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--dark-400);
+	color: var(--light);
+	overflow-x: hidden;
+	user-select: none;
+}
+
+img {
+	image-rendering: crisp-edges -moz-crisp-edges;
+}
+
+input,
+select,
+textarea {
+	outline: none;
+}
+
+/* link underline effect */
+.link {
+	position: relative;
+	width: fit-content;
+}
+
+.link::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 0;
+	height: 2px;
+	background: var(--light);
+	transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	-moz-transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	-webkit-transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.link.main::before {
+	background: var(--main);
+}
+
+.link.accent::before {
+	background: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.link:hover::before {
+		left: 0;
+		right: auto;
+		width: 100%;
+	}
+}
