@@ -18,7 +18,7 @@ const Page = () => {
 
 	return (
 		<main className="flex w-full flex-col gap-5 px-5 py-10 lg:gap-20 lg:px-60">
-			<section className="shadow-glow-2xl grid aspect-[3/2] w-full place-items-center rounded-2xl bg-gradient-to-r from-main via-accent to-light p-1 lg:aspect-[3/1]">
+			<section className="grid aspect-[3/2] w-full place-items-center rounded-2xl bg-gradient-to-r from-main via-accent to-light p-1 shadow-glow-2xl lg:aspect-[3/1]">
 				<div className="grid h-full w-full place-items-center rounded-2xl bg-dark-300">
 					<p className="text-5xl font-bold text-light lg:text-8xl">Foglio</p>
 				</div>
@@ -50,7 +50,7 @@ const Page = () => {
 						ground up to assist you in locating fresh prospects or your next
 						outstanding hiring.
 					</p>
-					<Link to="/login" className="link main text-main lg:text-2xl">
+					<Link to="/login" className="link accent text-accent lg:text-2xl">
 						Get started
 					</Link>
 				</div>

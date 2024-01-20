@@ -25,7 +25,7 @@ const Input = (props: Props) => {
 	if (props.as === "textarea") {
 		return (
 			<div className={`flex flex-col ${props.width ? props.width : "w-full"}`}>
-				<label htmlFor={props.id} className="text-sm text-gray-400">
+				<label htmlFor={props.id} className="text-lignt ml-3 text-sm">
 					{props.label}
 				</label>
 				<textarea
@@ -39,7 +39,7 @@ const Input = (props: Props) => {
 	if (props.as === "select") {
 		return (
 			<div className={`flex flex-col ${props.width ? props.width : "w-full"}`}>
-				<label htmlFor={props.id} className="text-sm text-gray-400">
+				<label htmlFor={props.id} className="text-lignt ml-3 text-sm">
 					{props.label}
 				</label>
 				<select
@@ -54,7 +54,7 @@ const Input = (props: Props) => {
 
 	return (
 		<div className={`flex flex-col ${props.width ? props.width : "w-full"}`}>
-			<label htmlFor={props.id} className="text-sm text-gray-400">
+			<label htmlFor={props.id} className="text-lignt ml-3 text-sm">
 				{props.label}
 			</label>
 			<input
