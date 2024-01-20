@@ -76,3 +76,78 @@ export const Handles = [
 		url: "https://www.linkedin.com/in/samson-okunola/",
 	},
 ]
+
+export const TabOptions = [
+	{
+		name: "General",
+		component: (
+			<div className="grid h-full w-full place-items-center">General</div>
+		),
+	},
+	{
+		name: "Work Experience",
+		component: (
+			<div className="grid h-full w-full place-items-center">Work Experience</div>
+		),
+	},
+	{
+		name: "Education",
+		component: (
+			<div className="grid h-full w-full place-items-center">Education</div>
+		),
+	},
+	{
+		name: "Projects",
+		component: (
+			<div className="grid h-full w-full place-items-center">Projects</div>
+		),
+	},
+	{
+		name: "Side Projects",
+		component: (
+			<div className="grid h-full w-full place-items-center">Side Projects</div>
+		),
+	},
+	{
+		name: "Awards",
+		component: (
+			<div className="grid h-full w-full place-items-center">Awards</div>
+		),
+	},
+	{
+		name: "Exhibitions",
+		component: (
+			<div className="grid h-full w-full place-items-center">Exhibitions</div>
+		),
+	},
+	{
+		name: "Speaking",
+		component: (
+			<div className="grid h-full w-full place-items-center">Speaking</div>
+		),
+	},
+	{
+		name: "Features",
+		component: (
+			<div className="grid h-full w-full place-items-center">Features</div>
+		),
+	},
+	{
+		name: "Volunteering",
+		component: (
+			<div className="grid h-full w-full place-items-center">Volunteering</div>
+		),
+	},
+	{
+		name: "Certifications",
+		component: (
+			<div className="grid h-full w-full place-items-center">Certifications</div>
+		),
+	},
+	{
+		name: "Contact",
+		component: (
+			<div className="grid h-full w-full place-items-center">Contact</div>
+		),
+	},
+]

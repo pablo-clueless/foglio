@@ -30,7 +30,12 @@ const Footer = () => {
 					<p>Foglio</p>
 					<div className="flex items-center gap-2">
 						{Handles.map((handle, index) => (
-							<a key={index} href={handle.url} target="_blank" className="text-xl">
+							<a
+								key={index}
+								href={handle.url}
+								target="_blank"
+								title={handle.name}
+								className="text-xl">
 								{handle.logo}
 							</a>
 						))}
