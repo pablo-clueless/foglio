@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 import { Suspense } from "react"
 
+import { LoginRedirect, Main, ProtectedRoute } from "layouts"
 import { useConcurrentTransition } from "hooks"
 import { Loader } from "components"
-import { Main } from "layouts"
 import {
 	About,
 	Explore,
@@ -11,8 +11,10 @@ import {
 	JobListing,
 	JobListings,
 	Login,
+	NotFound,
 	Profile,
 	Recruiters,
+	Search,
 	User,
 } from "pages"
 
@@ -25,14 +27,20 @@ const Router = () => {
 				<Route path="/" element={<Main />}>
 					<Route index element={<Home />} />
 					<Route path="explore" element={<Explore />} />
-					<Route path="jobs" element={<JobListings />} />
+					<Route path="job" element={<JobListings />} />
 					<Route path="hire" element={<Recruiters />} />
 					<Route path="about" element={<About />} />
+					<Route path="search" element={<Search />} />
 				</Route>
-				<Route path="/login" element={<Login />} />
-				<Route path="jobs/:id" element={<JobListing />} />
-				<Route path="/me" element={<Profile />} />
+				<Route element={<LoginRedirect />}>
+					<Route path="/login" element={<Login />} />
+				</Route>
+				<Route path="job/:id" element={<JobListing />} />
 				<Route path="/:username" element={<User />} />
+				<Route path="*" element={<NotFound />} />
+				<Route element={<ProtectedRoute />}>
+					<Route path="/me" element={<Profile />} />
+				</Route>
 			</Routes>
 		</Suspense>
 	)

@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 90deg;
+	inherits: true;
+}
+
 :root {
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -19,6 +25,7 @@
 	--dark-300: #1b1b1e;
 	--dark-200: #262626;
 	--dark-100: #878787;
+	--angle: 90deg;
 }
 
 /* removes scrollbar */
@@ -54,6 +61,22 @@ textarea {
 	outline: none;
 }
 
+input[type="file"]::-webkit-file-upload-button {
+	display: none;
+}
+
+svg {
+	shape-rendering: crispEdges;
+}
+
+svg circle,
+svg line,
+svg path,
+svg polygon,
+svg rect {
+	shape-rendering: geometricprecision;
+}
+
 /* link underline effect */
 .link {
 	position: relative;
@@ -66,11 +89,11 @@ textarea {
 	bottom: 0;
 	right: 0;
 	width: 0;
-	height: 2px;
+	height: 1px;
 	background: var(--light);
-	transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-	-moz-transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-	-webkit-transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+	-moz-transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+	-webkit-transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .link.main::before {
@@ -81,10 +104,57 @@ textarea {
 	background: var(--accent);
 }
 
+.link.dark_100::before {
+	background: var(--dark-100);
+}
+
 @media (hover: hover) and (pointer: fine) {
 	.link:hover::before {
 		left: 0;
 		right: auto;
 		width: 100%;
+	}
+}
+
+/* conic border */
+.conic-border {
+	border: 1px solid;
+	border-image: conic-gradient(
+			from var(--angle),
+			var(--light),
+			var(--light) 0.1turn,
+			var(--light) 0.15turn,
+			var(--light) 0.25turn
+		)
+		30;
+	animation: border 2500ms linear infinite forwards;
+}
+
+@keyframes border {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+/* stroked text */
+.stroked {
+	color: transparent;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: var(--light);
+}
+
+/* animate svg rectangle */
+#path {
+	stroke-dasharray: 497;
+	stroke-dashoffset: 497;
+	animation: draw 10s ease 1000ms infinite forwards;
+}
+
+@keyframes draw {
+	from {
+		stroke-dashoffset: 1000;
+	}
+	to {
+		stroke-dashoffset: 0;
 	}
 }
