@@ -1,6 +1,9 @@
+import { usePageTitle } from "hooks"
 import { Button } from "components"
 
 const Page = () => {
+	usePageTitle("Hire Talents")
+
 	return (
 		<main className="flex w-full flex-col px-5 py-10 lg:px-60">
 			<p className="text-sm text-accent lg:text-base">For Recruiters</p>

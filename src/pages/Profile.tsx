@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { objectToArray } from "utils"
+import { usePageTitle } from "hooks"
 import { Loader } from "components"
 import { useStore } from "store"
 
@@ -11,6 +12,8 @@ const Page = () => {
 	const ref = useRef<HTMLDivElement>(null)
 	const navigate = useNavigate()
 	const { user } = useStore()
+
+	usePageTitle("@me")
 
 	const handleClick = (e: MouseEvent) => {
 		if (ref.current && !ref.current.contains(e.target as Node)) {
