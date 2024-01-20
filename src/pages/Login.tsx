@@ -1,16 +1,15 @@
 import { GithubLogo, GoogleLogo } from "@phosphor-icons/react"
-import { Link, useNavigate } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
+import { Link } from "react-router-dom"
 import { useFormik } from "formik"
 import axios from "axios"
 
 import { Button, Input, Spinner } from "components"
-import { User } from "constants/user"
-import { useStore } from "store"
+// import { useStore } from "store"
 
 const Page = () => {
-	const navigate = useNavigate()
-	const { login } = useStore()
+	// const navigate = useNavigate()
+	// const { login } = useStore()
 
 	const { isPending } = useMutation({
 		mutationFn: (email: string) =>
@@ -21,9 +20,9 @@ const Page = () => {
 
 	const { errors, handleChange, handleSubmit } = useFormik({
 		initialValues: { email: "" },
-		onSubmit: () => {
-			login(User)
-			navigate("/")
+		onSubmit: (values) => {
+			console.log(values)
+			alert("Work in progress!")
 		},
 	})
 
