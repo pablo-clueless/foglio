@@ -18,6 +18,6 @@ export const useStore = create<UserStore>()(
 			login: (user) => set(() => ({ user, isLoggedIn: true })),
 			logout: () => set(() => ({ user: null, isLoggedIn: false })),
 		}),
-		{ name: "user" }
+		{ name: "foglio-user" }
 	)
 )
