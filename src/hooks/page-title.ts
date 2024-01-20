@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 const usePageTitle = (title: string) => {
 	useEffect(() => {
-		document.title = `${title} - TSL`
+		document.title = `${title} - Foglio`
 	}, [title])
 }
 

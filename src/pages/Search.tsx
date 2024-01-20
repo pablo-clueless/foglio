@@ -1,8 +1,11 @@
 import { useFormik } from "formik"
 
 import { Button, Input } from "components"
+import { usePageTitle } from "hooks"
 
 const Page = () => {
+	usePageTitle("Search Foglio")
+
 	const { errors, handleChange, handleSubmit } = useFormik({
 		initialValues: { query: "" },
 		onSubmit: (values) => console.log(values),

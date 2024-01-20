@@ -5,9 +5,11 @@ import { useFormik } from "formik"
 import axios from "axios"
 
 import { Button, Input, Spinner } from "components"
+import { usePageTitle } from "hooks"
 // import { useStore } from "store"
 
 const Page = () => {
+	usePageTitle("Continue the journey")
 	// const navigate = useNavigate()
 	// const { login } = useStore()
 

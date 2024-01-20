@@ -144,7 +144,7 @@ svg rect {
 }
 
 /* animate svg rectangle */
-#path {
+#cubes {
 	stroke-dasharray: 497;
 	stroke-dashoffset: 497;
 	animation: draw 10s ease 1000ms infinite forwards;

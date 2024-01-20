@@ -1,4 +1,8 @@
+import { usePageTitle } from "hooks"
+
 const Page = () => {
+	usePageTitle("Explore")
+
 	return (
 		<main className="flex w-full flex-col px-5 py-10 lg:px-60">
 			<p className="text-sm text-accent lg:text-base">For Networking</p>

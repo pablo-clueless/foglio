@@ -1,11 +1,15 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { ArrowLeft } from "@phosphor-icons/react"
 
+import { usePageTitle } from "hooks"
 import { Button } from "components"
 
 const Page = () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
+
+	// !TODO: change this when jobs are added to the database
+	usePageTitle("Job Title")
 
 	return (
 		<main className="flex w-full flex-col gap-5 px-5 py-10 lg:px-60">

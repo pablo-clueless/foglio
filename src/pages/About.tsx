@@ -1,6 +1,9 @@
 import { post } from "assets/images"
+import { usePageTitle } from "hooks"
 
 const Page = () => {
+	usePageTitle("About Foglio")
+
 	return (
 		<main className="flex w-full flex-col px-5 py-10 lg:px-60">
 			<p className="text-sm text-accent lg:text-base">What is Foglio?</p>
