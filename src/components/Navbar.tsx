@@ -21,9 +21,9 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className={`left-0 top-0 !z-[5] flex w-full items-center justify-between px-5 py-4 transition-all duration-500 lg:px-60 ${scrolled ? "fixed border-b bg-dark-400" : "relative bg-transparent"}`}>
+			className={`left-0 top-0 !z-[3] flex w-full items-center justify-between px-5 py-4 transition-all duration-500 lg:px-60 ${scrolled ? "fixed border-b bg-dark-400" : "relative bg-transparent"}`}>
 			<div className="block lg:hidden">
-				<button onClick={() => setIsOpen(!isOpen)}>
+				<button name="nav-button" onClick={() => setIsOpen(!isOpen)}>
 					<List
 						className={`text-2xl transition-all duration-500 ${isOpen ? "rotate-90" : ""}`}
 					/>
