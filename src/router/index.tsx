@@ -6,11 +6,13 @@ import { useConcurrentTransition } from "hooks"
 import { Loader } from "components"
 import {
 	About,
+	Contact,
 	Explore,
 	Home,
 	JobListing,
 	JobListings,
 	Login,
+	Newsletter,
 	NotFound,
 	Profile,
 	Recruiters,
@@ -31,6 +33,8 @@ const Router = () => {
 					<Route path="hire" element={<Recruiters />} />
 					<Route path="about" element={<About />} />
 					<Route path="search" element={<Search />} />
+					<Route path="support" element={<Contact />} />
+					<Route path="newsletter" element={<Newsletter />} />
 				</Route>
 				<Route element={<LoginRedirect />}>
 					<Route path="/login" element={<Login />} />

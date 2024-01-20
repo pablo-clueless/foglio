@@ -14,7 +14,7 @@ export const FooterLinks = [
 		links: [
 			{ name: "about", path: "/about" },
 			{ name: "explore", path: "/explore" },
-			{ name: "newsletter", path: "/" },
+			{ name: "newsletter", path: "/newsletter" },
 		],
 	},
 	{
@@ -28,7 +28,7 @@ export const FooterLinks = [
 	{
 		label: "company",
 		links: [
-			{ name: "support", path: "/" },
+			{ name: "support", path: "/support" },
 			{ name: "terms", path: "/" },
 			{ name: "privacy", path: "/" },
 		],

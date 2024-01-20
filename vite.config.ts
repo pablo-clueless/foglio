@@ -17,7 +17,7 @@ export default defineConfig({
 				short_name: "Foglio",
 				description: "Build amazing portfolios!",
 				theme_color: "#151419",
-				icons: [{ src: "/vite.svg", sizes: "192x192", type: "image/svg+xml" }],
+				icons: [{ src: "/foglio.svg", sizes: "192x192", type: "image/svg+xml" }],
 			},
 		}),
 	],
