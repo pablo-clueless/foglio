@@ -4,7 +4,7 @@ type Props = ComponentProps<"div"> & {
 	onClose: () => void
 }
 
-const Backdrop = (props: Props) => {
+export const Backdrop = (props: Props) => {
 	return (
 		<div
 			onClick={props.onClose}
@@ -17,5 +17,3 @@ const Backdrop = (props: Props) => {
 		</div>
 	)
 }
-
-export default Backdrop

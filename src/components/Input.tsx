@@ -21,7 +21,7 @@ type Props =
 			width?: string
 	  })
 
-const Input = (props: Props) => {
+export const Input = (props: Props) => {
 	if (props.as === "textarea") {
 		return (
 			<div className={`flex flex-col ${props.width ? props.width : "w-full"}`}>
@@ -66,5 +66,3 @@ const Input = (props: Props) => {
 		</div>
 	)
 }
-
-export default Input

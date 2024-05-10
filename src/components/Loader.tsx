@@ -1,6 +1,6 @@
 import "./loader.css"
 
-const Loader = () => {
+export const Loader = () => {
 	return (
 		<div className="fixed left-0 top-0 !z-[5] grid h-screen w-screen place-items-center bg-dark-400">
 			<svg viewBox="25 25 50 50" className="loader">
@@ -9,5 +9,3 @@ const Loader = () => {
 		</div>
 	)
 }
-
-export default Loader

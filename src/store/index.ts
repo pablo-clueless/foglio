@@ -1,23 +1,9 @@
-import { persist } from "zustand/middleware"
 import { create } from "zustand"
+import { combine } from "zustand/middleware"
 
-import { UserProps } from "../types/index"
+import { useGlobalStore } from "./z-store/global"
+import { useUserStore } from "./z-store/user"
 
-interface UserStore {
-	user: UserProps | null
-	isLoggedIn: boolean
-	login: (user: UserProps) => void
-	logout: () => void
-}
+const useStore = create(combine(useGlobalStore, useUserStore))
 
-export const useStore = create<UserStore>()(
-	persist(
-		(set) => ({
-			user: null,
-			isLoggedIn: false,
-			login: (user) => set(() => ({ user, isLoggedIn: true })),
-			logout: () => set(() => ({ user: null, isLoggedIn: false })),
-		}),
-		{ name: "foglio-user" }
-	)
-)
+export default useStore

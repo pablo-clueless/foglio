@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 import { FooterLinks, Handles } from "constants"
 
-const Footer = () => {
+export const Footer = () => {
 	return (
 		<footer className="w-full px-5 py-5 lg:px-60">
 			<div className="my-5 flex w-full flex-wrap items-center justify-between gap-5">
@@ -45,5 +45,3 @@ const Footer = () => {
 		</footer>
 	)
 }
-
-export default Footer

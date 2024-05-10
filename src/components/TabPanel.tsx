@@ -4,7 +4,7 @@ type Props = ComponentProps<"div"> & {
 	index: number
 }
 
-const TabPanel = (props: Props) => {
+export const TabPanel = (props: Props) => {
 	return (
 		<div
 			role="tabpanel"
@@ -15,5 +15,3 @@ const TabPanel = (props: Props) => {
 		</div>
 	)
 }
-
-export default TabPanel

@@ -11,7 +11,7 @@ type Props =
 			width?: string
 	  })
 
-const Button = (props: Props) => {
+export const Button = (props: Props) => {
 	if (props.as === "link") {
 		return (
 			<Link
@@ -30,5 +30,3 @@ const Button = (props: Props) => {
 		</button>
 	)
 }
-
-export default Button

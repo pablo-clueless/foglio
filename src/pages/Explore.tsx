@@ -1,5 +1,8 @@
 import { usePageTitle } from "hooks"
 
+import { ExploreCard } from "components"
+import { exploreList } from "mock"
+
 const Page = () => {
 	usePageTitle("Explore")
 
@@ -10,7 +13,11 @@ const Page = () => {
 			<p className="text-xl font-semibold text-gray-400 lg:text-2xl">
 				Connect with thousands of professionals around the world.
 			</p>
-			<div className="my-5 grid w-full grid-cols-1 gap-5 lg:grid-cols-3"></div>
+			<div className="my-5 grid w-full grid-cols-1 gap-5 lg:grid-cols-3">
+				{exploreList.map((user) => (
+					<ExploreCard key={user.id} user={user} />
+				))}
+			</div>
 		</main>
 	)
 }

@@ -2,15 +2,15 @@ import { Link, NavLink } from "react-router-dom"
 import { List } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
+import { useUserStore } from "store/z-store/user"
 import { avatar } from "assets/images"
 import { NavLinks } from "constants"
-import { useStore } from "store"
-import Button from "./Button"
+import { Button } from "./Button"
 
-const Navbar = () => {
+export const Navbar = () => {
 	const [scrolled, setScrolled] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
-	const { isLoggedIn } = useStore()
+	const { user } = useUserStore()
 
 	const handleScroll = () => setScrolled(window.scrollY > 600)
 
@@ -41,7 +41,7 @@ const Navbar = () => {
 					</NavLink>
 				))}
 			</div>
-			{isLoggedIn ? (
+			{user ? (
 				<Link to="/me">
 					<img
 						src={avatar}
@@ -72,5 +72,3 @@ const Navbar = () => {
 		</nav>
 	)
 }
-
-export default Navbar

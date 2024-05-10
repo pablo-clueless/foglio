@@ -2,7 +2,7 @@ interface Props {
 	resetErrorBoundary: () => void
 }
 
-const ErrorFallback = (props: Props) => {
+export const ErrorFallback = (props: Props) => {
 	return (
 		<div className="my-auto grid h-screen w-screen place-items-center px-4 md:px-0">
 			<div
@@ -25,5 +25,3 @@ const ErrorFallback = (props: Props) => {
 		</div>
 	)
 }
-
-export default ErrorFallback

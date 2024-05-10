@@ -1,9 +1,9 @@
 import { useState } from "react"
 
 import { TabOptions } from "constants"
-import TabPanel from "./TabPanel"
+import { TabPanel } from "./TabPanel"
 
-const EditProfile = () => {
+export const EditProfile = () => {
 	const [tab, setTab] = useState(0)
 
 	return (
@@ -28,5 +28,3 @@ const EditProfile = () => {
 		</div>
 	)
 }
-
-export default EditProfile

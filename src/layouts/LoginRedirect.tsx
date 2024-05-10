@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom"
 
-import { useStore } from "store"
+import { useUserStore } from "store/z-store/user"
 
 const LoginRedirect = () => {
-	const { isLoggedIn } = useStore()
+	const { user } = useUserStore()
 
-	return isLoggedIn ? <Navigate to="/" /> : <Outlet />
+	return user ? <Navigate to="/" /> : <Outlet />
 }
 
 export default LoginRedirect

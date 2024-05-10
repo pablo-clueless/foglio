@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom"
 
-import { useStore } from "store"
+import { useUserStore } from "store/z-store/user"
 
 const ProtectedRoute = () => {
-	const { isLoggedIn } = useStore()
+	const { user } = useUserStore()
 
-	return isLoggedIn ? <Outlet /> : <Navigate to="/login" />
+	return user ? <Outlet /> : <Navigate to="/login" />
 }
 
 export default ProtectedRoute

@@ -1,30 +1,36 @@
 import { GithubLogo, GoogleLogo } from "@phosphor-icons/react"
+import { Link, useNavigate } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
-import { Link } from "react-router-dom"
 import { useFormik } from "formik"
 import axios from "axios"
 
 import { Button, Input, Spinner } from "components"
+import { useUserStore } from "store/z-store/user"
+import { endpoints } from "constants/endpoints"
 import { usePageTitle } from "hooks"
-// import { useStore } from "store"
+
+const initialValues = { email: "", password: "" }
 
 const Page = () => {
 	usePageTitle("Continue the journey")
-	// const navigate = useNavigate()
-	// const { login } = useStore()
+	const { signIn } = useUserStore()
+	const navigate = useNavigate()
 
-	const { isPending } = useMutation({
-		mutationFn: (email: string) =>
-			axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, { email }),
-		onSuccess: (data) => console.log(data),
+	const { isPending, mutateAsync } = useMutation({
+		mutationFn: (payload: typeof initialValues) =>
+			axios.post(`${endpoints().auth.signin}`, payload),
+		onSuccess: ({ data }) => {
+			const { token, user } = data
+			signIn(user, token)
+			navigate("/me")
+		},
 		onError: (error) => console.log(error),
 	})
 
 	const { errors, handleChange, handleSubmit } = useFormik({
-		initialValues: { email: "" },
+		initialValues,
 		onSubmit: (values) => {
-			console.log(values)
-			alert("Work in progress!")
+			mutateAsync(values)
 		},
 	})
 
@@ -38,9 +44,7 @@ const Page = () => {
 					<GithubLogo /> Login with Github
 				</Button>
 				<hr className="my-5 w-full bg-dark-100" />
-				<p className="text-center text-lg lg:text-xl">
-					Enter your email and we will send you a magic link
-				</p>
+				<p className="text-center text-lg lg:text-xl">Continue with your email</p>
 				<form
 					onSubmit={handleSubmit}
 					className="my-4 flex w-full flex-col items-center gap-4">
@@ -50,6 +54,13 @@ const Page = () => {
 						onChange={handleChange}
 						error={errors.email}
 						placeholder="Email"
+					/>
+					<Input
+						typed="password"
+						id="password"
+						onChange={handleChange}
+						error={errors.password}
+						placeholder="Password"
 					/>
 					<Button type="submit">{isPending ? <Spinner /> : "Login"}</Button>
 				</form>

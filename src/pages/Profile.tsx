@@ -1,19 +1,27 @@
 import { ArrowRight, ArrowUpRight, DotsThree } from "@phosphor-icons/react"
 import { useEffect, useRef, useState } from "react"
+import { useQuery } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 import { Backdrop, EditProfile, Loader } from "components"
 import { useGlobalContext, usePageTitle } from "hooks"
+import { useUserStore } from "store/z-store/user"
+import { endpoints } from "constants/endpoints"
 import { objectToArray } from "utils"
-import { useStore } from "store"
 
 const Page = () => {
 	const [isCopied, setIsCopied] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
 	const ref = useRef<HTMLDivElement>(null)
+	const { user } = useUserStore()
 	const navigate = useNavigate()
-	const { user } = useStore()
 	usePageTitle("@me")
+
+	const { data } = useQuery({
+		queryFn: () => axios.get(`${endpoints(String(user?.id)).auth.me}`),
+		queryKey: ["get-user"],
+	})
 
 	const { openEditor, handleOpenEditor } = useGlobalContext()
 
@@ -91,7 +99,7 @@ const Page = () => {
 					<div className="flex w-full items-center justify-between">
 						<div className="flex items-center gap-4">
 							<img
-								src={user.image}
+								src={user?.imageUrl}
 								alt=""
 								className="size-20 rounded-full object-cover lg:size-40"
 							/>
