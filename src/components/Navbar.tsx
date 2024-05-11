@@ -3,8 +3,8 @@ import { List } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
 import { useUserStore } from "store/z-store/user"
-import { avatar } from "assets/images"
 import { NavLinks } from "constants"
+import { Avatar } from "./Avatar"
 import { Button } from "./Button"
 
 export const Navbar = () => {
@@ -43,11 +43,7 @@ export const Navbar = () => {
 			</div>
 			{user ? (
 				<Link to="/me">
-					<img
-						src={avatar}
-						alt=""
-						className="size-6 rounded-full border object-cover lg:size-10"
-					/>
+					<Avatar src={user?.imageUrl} alt={user.name} size="sm" />
 				</Link>
 			) : (
 				<Button as="link" to="/login">

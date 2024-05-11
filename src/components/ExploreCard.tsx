@@ -2,6 +2,7 @@ import { Globe } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 
 import { UserProps } from "types"
+import { Avatar } from "./Avatar"
 
 interface Props {
 	user: UserProps
@@ -24,13 +25,7 @@ export const ExploreCard = ({ user }: Props) => {
 						<p className="text-sm font-semibold">{user.role}</p>
 						<h3 className="text-xl font-medium">{user.name}</h3>
 					</div>
-					<div className="size-10 rounded-full border border-dark-400">
-						<img
-							src={user.imageUrl}
-							alt={user.name}
-							className="size-full rounded-full object-cover"
-						/>
-					</div>
+					<Avatar alt={user.name} size="sm" src={user.imageUrl} />
 				</div>
 			</div>
 			<div className="flex w-full items-center justify-between p-2 text-light">

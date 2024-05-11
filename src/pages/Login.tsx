@@ -8,6 +8,7 @@ import { Button, Input, Spinner } from "components"
 import { useUserStore } from "store/z-store/user"
 import { endpoints } from "constants/endpoints"
 import { usePageTitle } from "hooks"
+import { HttpError } from "types"
 
 const initialValues = { email: "", password: "" }
 
@@ -20,11 +21,14 @@ const Page = () => {
 		mutationFn: (payload: typeof initialValues) =>
 			axios.post(`${endpoints().auth.signin}`, payload),
 		onSuccess: ({ data }) => {
-			const { token, user } = data
+			const { token, user } = data?.data
 			signIn(user, token)
 			navigate("/me")
 		},
-		onError: (error) => console.log(error),
+		onError: ({ response }: HttpError) => {
+			const { message } = response.data
+			alert(message)
+		},
 	})
 
 	const { errors, handleChange, handleSubmit } = useFormik({
