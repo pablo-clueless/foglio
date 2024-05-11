@@ -4,7 +4,7 @@ export const endpoints = (param?: string | null, query?: string | null) => {
 	const auth = {
 		signup: `${baseUrl}/auth/signup`,
 		signin: `${baseUrl}/auth/signin`,
-		me: `${baseUrl}/auth/${param}`,
+		me: `${baseUrl}/auth/me`,
 	}
 
 	const job = {

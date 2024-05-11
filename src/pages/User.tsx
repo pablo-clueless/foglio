@@ -1,8 +1,8 @@
 import { MapPin } from "@phosphor-icons/react"
 import { useParams } from "react-router-dom"
 
+import { Avatar, Navbar } from "components"
 import { usePageTitle } from "hooks"
-import { Navbar } from "components"
 import { exploreList } from "mock"
 
 const Page = () => {
@@ -20,15 +20,9 @@ const Page = () => {
 			<main className="w-full px-5 py-10 text-light lg:px-60">
 				<div className="flex w-full flex-col">
 					<div className="flex w-full items-center gap-5">
-						<div className="size-28 rounded-full border border-light">
-							<img
-								src={user.imageUrl}
-								alt=""
-								className="size-full rounded-full object-cover"
-							/>
-						</div>
+						<Avatar alt={user.name} size="lg" src={user.imageUrl} />
 						<div className="flex flex-col">
-							<h2 className="text-4xl">{user.name}</h2>
+							<h2 className="text-xl lg:text-4xl">{user.name}</h2>
 							<p className="text-lg text-accent">@{user.username}</p>
 							<a
 								href={user.website}
@@ -37,15 +31,16 @@ const Page = () => {
 								{user.website}
 							</a>
 							<div className="flex items-center gap-4">
-								{Object.keys(user.contact).map((key) => (
-									<a
-										key={key}
-										href={user.contact[key as keyof typeof user.contact]}
-										target="_blank"
-										className="link">
-										{key}
-									</a>
-								))}
+								{user.contact &&
+									Object.keys(user.contact).map((key) => (
+										<a
+											key={key}
+											href={user.contact[key as keyof typeof user.contact]}
+											target="_blank"
+											className="link">
+											{key}
+										</a>
+									))}
 							</div>
 						</div>
 					</div>
