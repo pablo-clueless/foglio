@@ -18,7 +18,7 @@ const Page = () => {
 	const navigate = useNavigate()
 	usePageTitle("@me")
 
-	const { data } = useQuery({
+	const {} = useQuery({
 		queryFn: () => axios.get(`${endpoints(String(user?.id)).auth.me}`),
 		queryKey: ["get-user"],
 	})
@@ -145,7 +145,7 @@ const Page = () => {
 						<p className="flex w-full flex-col lg:w-2/3">
 							<span>Work Experience</span>
 							<span className="text-gray-400">
-								{user.experience.map((item) => (
+								{user.experience?.map((item) => (
 									<span
 										key={item.id}
 										className="flex flex-col lg:flex-row lg:items-center lg:gap-10">
@@ -165,7 +165,7 @@ const Page = () => {
 						<p className="flex w-full flex-col lg:w-2/3">
 							<span>Education</span>
 							<span className="text-gray-400">
-								{user.education.map((item) => (
+								{user.education?.map((item) => (
 									<span
 										key={item.id}
 										className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
